@@ -53,3 +53,9 @@ If you feel like there is more that you would like to add, feel free to test the
 ### Once complete
 
 Once complete, please e-mail a link to your repo and instructions to run your tests to Nicholas.Green@skybettingandgaming.com.
+
+### Running the tests
+
+Prerequisites
+1) Install jest using npm `npm install jest`
+2) Install apollo-boost `npm install apollo-boost`
