@@ -2,20 +2,37 @@ import 'cross-fetch/polyfill';
 import { gql } from 'apollo-boost';
 import { client } from '../utils';
 
-class QueryHelper {
-    // Class containing all queries used for query tests
+const add2number = (num1, num2) => num1 + num2;
 
-    async getAllGames() {
-        const getAllGames = gql`
-          {
-            games {
-              name
-            }
-          }
-          `
-        const response = await client.query({
-            query: getAllGames
-        })
-        return response.data
+
+const getAllGames = () => {
+  const games = gql`
+    {
+      games {
+        name
+      }
     }
+    `
+  const response = client.query({
+      query: games
+  })
+  return response.data.games
 }
+module.exports = { add2number, getAllGames };
+
+    
+
+  //   async getGameBySlug(slug) {
+  //     const getGameBySlug = gql`
+  //       {
+  //           gameBySlug(slug: ${slug}) {
+  //               name
+  //           }
+  //       }
+  //       `
+  //       const response = await client.query({
+  //           query: getGameBySlug
+  //       })
+  //       return response.data
+  //   }
+  // }
