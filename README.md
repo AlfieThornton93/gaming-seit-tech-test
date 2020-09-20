@@ -57,5 +57,8 @@ Once complete, please e-mail a link to your repo and instructions to run your te
 ### Running the tests
 
 Prerequisites
-1) Install jest using npm `npm install jest`
-2) Install apollo-boost `npm install apollo-boost`
+1) Install npm
+2) Install yarn
+3) Install jest using npm `npm install jest`
+4) Install apollo-boost `npm install apollo-boost`
+5) Install jest html reporter `yarn add jest-html-reporter --dev`

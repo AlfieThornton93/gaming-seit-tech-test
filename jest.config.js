@@ -2,6 +2,13 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
+  // Jest test html report output
+  "reporters": [
+    "default",
+    ["./node_modules/jest-html-reporter", {
+        "pageTitle": "Test Report"
+    }]
+],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
