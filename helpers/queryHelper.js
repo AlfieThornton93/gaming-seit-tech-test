@@ -11,7 +11,6 @@ const getAllGamesQuery = gql`
     `
 
 // Query to get specific game by slug
-
   const getRandomGameBySlugQuery = gql`
     {
       gameBySlug(slug: "random-game") {
@@ -19,7 +18,7 @@ const getAllGamesQuery = gql`
       }
     }
     `
-
+// Query to get error by passing invalid slug 
   const getInvalidGameBySlugQuery = gql`
   {
     gameBySlug(slug: "invalid-game") {
@@ -28,6 +27,7 @@ const getAllGamesQuery = gql`
   }
   `
 
+// Query to get a game by ID
 module.exports = { getAllGamesQuery, getRandomGameBySlugQuery, getInvalidGameBySlugQuery };
 
     
