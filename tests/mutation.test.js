@@ -1,7 +1,7 @@
 import 'cross-fetch/polyfill';
 import { gql } from 'apollo-boost';
 import { client } from '../utils';
-const { addGameMutation, newGameName } = require('../helpers/MutationHelper');
+const { addGameMutation, newGameName, addExistingGame, addGameExistingSlug } = require('../helpers/MutationHelper');
 
 
 describe('Create new game', () => {
@@ -9,7 +9,7 @@ describe('Create new game', () => {
     // afterEach code would go here if it were possible to delete and clean up games
 
     // Test that a new unique game is created
-    it('creates a new game', async () => {
+    it('creates a new game successfully', async () => {
         const response = await client.mutate({
             mutation: addGameMutation
         })
@@ -32,48 +32,16 @@ describe('Create new game', () => {
     }),
 
     //Test to see that you cannot create have 2 games with the same name per supplier
-    it('fails to create game with existing name and supplier', async () => {
-        const addGame = gql`
-        mutation {
-            addGame(input: {
-              name: "test",
-              slug: "test-slug",
-              supplier: 1
-            }) {
-              id
-            }
-          }
-          `
-        const response = await client.mutate({
-            mutation: addGame
-        })
-        expect(response.addGame.id).toBe(5);
+    it('fails to create game with existing name and supplier but unique slug', async () => {
+      await expect(client.mutate({
+        mutation: addExistingGame
+      })).rejects.toThrowError("GraphQL error: The game \"Random Game\" already exists for this supplier! Cannot add this game...");
     }),
-    it('adds 2 numbers', async () => {
-      const ans = await add2number(1, 1)
-      expect(ans).toBe(2);
-  }),
 
     // Test to see that you cannot create have 2 games with the same slug
-    it('fails to create game with existing name and supplier', async () => {
-        const addGame = gql`
-        mutation {
-            addGame(input: {
-              name: "test",
-              slug: "test-slug",
-              supplier: 2
-            }) {
-              id
-            }
-          }
-          `
-        const response = await client.mutate({
-            mutation: addGame
-        })
-        expect(response.addGame.id).toBe(5);
-    }),
-    it('adds 2 numbers', async () => {
-      const ans = await add2number(1, 1)
-      expect(ans).toBe(2);
-  })
+    it('fails to create game with existing slug', async () => {
+      await expect(client.mutate({
+        mutation: addGameExistingSlug
+      })).rejects.toThrowError("GraphQL error: The slug \"random-game\" already exists! Cannot add this game...");
+    })
 })
