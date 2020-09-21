@@ -56,7 +56,7 @@ Once complete, please e-mail a link to your repo and instructions to run your te
 
 ### Running the tests
 
-## Prerequisites
+#### Prerequisites
 1) Install npm
 2) Install yarn
 3) Install jest using npm `npm install jest`
