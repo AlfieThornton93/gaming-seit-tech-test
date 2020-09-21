@@ -1,2 +1,5 @@
 # Don't commit test reports
 ./test-reports
+
+# Ignore node modules
+./node_modules
