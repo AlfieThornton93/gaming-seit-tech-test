@@ -56,11 +56,13 @@ Once complete, please e-mail a link to your repo and instructions to run your te
 
 ### Running the tests
 
-Prerequisites
+## Prerequisites
 1) Install npm
 2) Install yarn
 3) Install jest using npm `npm install jest`
 4) Install apollo-boost `npm install apollo-boost`
 5) Install jest html reporter `yarn add jest-html-reporter --dev`
 
-To run test run `npm test`. Query tests are run first then mutation tests
+To run test run `make test`. Query tests are run first then mutation tests
+
+Test reports are generated in a test-reports folder in root
