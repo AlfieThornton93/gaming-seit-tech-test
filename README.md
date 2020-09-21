@@ -56,12 +56,11 @@ Once complete, please e-mail a link to your repo and instructions to run your te
 
 ### Running the tests
 
-#### Prerequisites
 1) Run `npm install`
-2) Install jest using npm `npm install jest`
-3) Install apollo-boost `npm install apollo-boost`
-4) Install jest html reporter `yarn add jest-html-reporter --dev`
+2) Run `make start` to set up docker container
+3) Run `make test` to run tests
+4) Run `make stop` to stop and remove docker container after tests (this needs to be done before subsequent test runs to remove created games)
 
-To run test run `make test`. Query tests are run first then mutation tests
+Query tests are run first then mutation tests
 
 Test reports are generated in a test-reports folder in root
