@@ -1,0 +1,6 @@
+{
+    "pageTitle": "Test Report",
+    "outputPath": "test-reports/test-report.html",
+    "includeFailureMsg": true,
+    "executionMode": "reporter"
+}

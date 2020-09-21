@@ -11,5 +11,5 @@ stop:
 logs:
 	docker logs -f sbg-tech-test-app
 
-test: stop start
-	# Feel free to put your test commands here
+test:
+	npm run test
