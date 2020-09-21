@@ -6,7 +6,8 @@ const { addGameMutation, newGameName, addExistingGame, addGameExistingSlug } = r
 
 describe('Create new game', () => {
     // Delete game after each test
-    // afterEach code would go here if it were possible to delete and clean up games
+    // afterEach code would go here if it were possible to delete and clean up games. Dependency on query tests running successfully
+    // as it checks for the correct amount of games. This will fail after first run as mutation tests will increase the number of games
 
     // Test that a new unique game is created
     it('creates a new game successfully', async () => {
