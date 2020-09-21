@@ -38,8 +38,8 @@ describe('Get games by slug', () => {
     // Test to check an appropriate error message is returned when trying to find game with invalid slug
     it('should throw an error message when invalid slug is used', async () => {
         await expect(client.query({
-                query: getInvalidGameBySlugQuery
-            })).rejects.toThrowError("Cannot return null for non-nullable field Game.name")
+            query: getInvalidGameBySlugQuery
+        })).rejects.toThrowError("Cannot return null for non-nullable field Game.name")
     })
         // Below code to catch the error and check the response body for valid error message
 })
